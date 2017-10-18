@@ -177,7 +177,8 @@ int main(int argc, const char** argv)
 
 				if (backprojMode)
 					cvtColor(backproj, image, CV_GRAY2BGR);//因此投影模式下显示的也是rgb图？
-				ellipse(image, trackBox, Scalar(0, 0, 255), 3, CV_AA);//跟踪的时候以椭圆为代表目标
+				// ellipse(image, trackBox, Scalar(0, 0, 255), 3, CV_AA);//跟踪的时候以椭圆为代表目标
+				rectangle(image, trackWindow, Scalar(0, 0, 255), 3, CV_AA);
 			}
 		}
 
