@@ -171,7 +171,7 @@ int main(int argc, const char** argv)
 				{
 					int cols = backproj.cols, rows = backproj.rows, r = (MIN(cols, rows) + 5) / 6;
 					trackWindow = Rect(trackWindow.x - r, trackWindow.y - r,
-						trackWindow.x + r, trackWindow.y + r) &
+						trackWindow.x + r, trackWindow.y + r) & 
 						Rect(0, 0, cols, rows);//Rect函数为矩阵的偏移和大小，即第一二个参数为矩阵的左上角点坐标，第三四个参数为矩阵的宽和高
 				}
 
