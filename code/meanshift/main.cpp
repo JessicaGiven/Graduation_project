@@ -52,7 +52,7 @@ void help()
 	cout << "\nThis is a demo that shows mean-shift based tracking\n"
 		"You select a color objects such as your face and it tracks it.\n"
 		"This reads from video camera (0 by default, or the camera number the user enters\n"
-		"Usage: \n"
+		"Usage: \n" 
 		"    ./camshiftdemo [camera number]\n";
 
 	cout << "\n\nHot keys: \n"
@@ -81,7 +81,7 @@ int main(int argc, const char** argv)
 	const float* phranges = hranges;
 	CommandLineParser parser(argc, argv, keys);//命令解析器函数
 	int camNum = parser.get<int>("1");
-
+	 
 	cap.open("test.mp4");//直接调用成员函数打开摄像头
 
 	if (!cap.isOpened())
@@ -112,10 +112,10 @@ int main(int argc, const char** argv)
 				break;
 		}
 
-		frame.copyTo(image);
+		frame.copyTo(image); 
 
 		if (!paused)//没有按暂停键
-		{
+		{ 
 			cvtColor(image, hsv, CV_BGR2HSV);//将rgb摄像头帧转化成hsv空间的
 
 			if (trackObject)//trackObject初始化为0,或者按完键盘的'c'键后也为0，当鼠标单击松开后为-1
