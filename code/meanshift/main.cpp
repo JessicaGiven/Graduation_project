@@ -2,6 +2,7 @@
 #include "opencv2/video/tracking.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
+#include "opencv2/contrib/contrib.hpp"  
 
 
 #include <iostream>
@@ -103,11 +104,20 @@ int main(int argc, const char** argv)
 	Mat frame, hsv, hue, mask, hist, histimg = Mat::zeros(200, 320, CV_8UC3), backproj;
 	bool paused = false;
 
+	string dir_path = "F:/vot2016/gymnastics1/";
+	Directory dir;
+	vector<string> fileNames = dir.GetListFiles(dir_path, "*.jpg", false);
+	int img_count = 0;
+
+
 	for (;;)
 	{
 		if (!paused)//没有暂停
 		{
-			cap >> frame;//从摄像头抓取一帧图像并输出到frame中
+			string fileName = fileNames[img_count];
+			string fileFullName = dir_path + fileName;
+			img_count++;
+			frame = imread(fileFullName, 1);//从摄像头抓取一帧图像并输出到frame中
 			if (frame.empty())
 				break;
 		}
